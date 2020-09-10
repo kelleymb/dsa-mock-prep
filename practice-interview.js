@@ -109,7 +109,27 @@ wordCount('hello there this is an array');
 //number of palindromes
 // - Input: `"Dad gave mom a Tesla as a racecar"`
 // - Output: `Dad, mom, racecar, 3 Palindromes`
+function countPalindrome(str) {
+    if (str.length === 0) {
+        return null;
+    }
+    let freq = {};
+    let count = 0;
+    let pal = str.split(' ').reverse().join();
+    if (freq[pal]) {
+      freq[pal]++;
+    } else {
+        freq[pal] = 1;
+    }
+    if (count < freq[pal]) {
+       count = freq[pal];
+       console.log(`${count} Palindrome(s).`)
+    }
+    return freq;
+}
 
+countPalindrome('mom')
+countPalindrome('tacocat')
 
 //6. Given 2 linked lists, where each node in each linked list represents a character
 //in a string, write a function compare() that compares the 2 strings
