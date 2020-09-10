@@ -69,7 +69,7 @@ function wordCount(string) {
     let freqCount = {};
     //loop through string
     for (let i = 0; i < string.length; i++) {
-        let word = string.substr(0, string.indexOf(" "));
+        let word = string.split(" ");
         //identify word
         if (freqCount[word]) {
             freqCount[word]++;
