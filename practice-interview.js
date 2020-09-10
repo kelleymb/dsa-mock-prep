@@ -104,7 +104,7 @@ wordCount('hello there this is an array');
 //from the sorted linked list
 
 
-//5 .Given a string, write an algorithm to count the number of words in the string
+//5. Given a string, write an algorithm to count the number of words in the string
 //that are palindromes. The output must include a list of the palindromes and the
 //number of palindromes
 // - Input: `"Dad gave mom a Tesla as a racecar"`
@@ -130,3 +130,26 @@ wordCount('hello there this is an array');
 //if no number in the list is repeated, then there is no mode for the list
 // - Input: `1, 2, 3, 6, 10, 3, 5, 6, 3, 3`
 // - Output: `Mode = 3, Frequency of mode = 4`
+function findMode(arr) {
+    //edge case
+    if (arr.length === 0) {
+        return null;
+    }
+    let mode = {};
+    let max = 0;
+    let count = 0;
+    arr.forEach((e) => {
+        if (mode[e]) {
+            mode[e]++;
+        } else {
+            mode[e] = 1;
+        }
+        if (count < mode[e]) {
+            max = e;
+            count = mode[e];
+        }
+    });
+    return `Mode: ${max} Frequency: ${count}`;
+}
+
+findMode([2,2,2,3,4,6]);
