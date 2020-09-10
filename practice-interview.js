@@ -60,6 +60,8 @@ function commonLetter(string) {
 //3. Given a document, implement an algorithm to count the number of word occurences
 //- Input: `"Hello there, how are you? Can you tell me how to get to the nearest Starbucks?"`
 //- Output: `Hello = 1, there = 1, how = 2, are = 1, you = 2`
+
+//NAIVE APPROACH
 function wordCount(string) {
     //edge case
     if (string.length === 0) {
@@ -69,17 +71,34 @@ function wordCount(string) {
     let freqCount = {};
     //loop through string
     for (let i = 0; i < string.length; i++) {
-        let word = string.split(" ");
-        //identify word
-        if (freqCount[word]) {
-            freqCount[word]++;
-        } else {
-            freqCount[word] = 1;
-        }
+        let words = string.split(' ');
+        words.forEach((word) => {
+            if (freqCount.hasOwnProperty(word)) {
+                freqCount[word] = 0;
+            }
+           freqCount[word] += 1; 
+        })
+        
     }
     //return count object
     return freqCount;
 }
+
+//SIMPLER APPROACH
+function wordCount(string) {
+    count = {};
+    words = string.split(' ');
+    words.forEach((word) => {
+        if (count[word]) {
+            count[word] +=1;
+        } else {
+            count[word] = 1;
+        }
+    })
+    return count;
+}
+
+wordCount('hello there this is an array');
 
 //4. Given a sorted linked list, write an algorithm to delete all duplicate numbers
 //from the sorted linked list
