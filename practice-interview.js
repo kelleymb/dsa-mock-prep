@@ -102,6 +102,22 @@ wordCount('hello there this is an array');
 
 //4. Given a sorted linked list, write an algorithm to delete all duplicate numbers
 //from the sorted linked list
+function removeDuplicates(head) {
+    let current = head;
+    //edge case
+    if (!head || !head.next) {
+        return head;
+    }
+    while (current && current.next) {
+        if (current.val = current.next.val) {
+            current.next = current.next.next
+        } else {
+            current = current.next;
+        }
+
+    }
+    return head;
+}
 
 
 //5. Given a string, write an algorithm to count the number of words in the string
@@ -143,6 +159,36 @@ countPalindrome('tacocat')
 
 // - Input: `list 1: B->i->l->b->o->a, list 2: B->i->l->b->o->b` 
 // - Output: `-1`
+
+//WHAT ARE THE POSSIBILITIES
+//*ORDER IN WHICH THEY OCCUR*
+function compare(lL1, lL2) {
+    //edge case
+    if (lL1.length === 0 && lL2.length === 0) {
+        return null;
+    }
+    let currentA = lL1;
+    let currentB = lL2;
+    //whichever is longer
+    let next = lL1.next || lL2.next;
+    //traverse through each LL (going through each node in their LL)
+    while (next) {
+        if (currentA.val > currentB.val) {
+            return 1;
+            // return lL1;
+        } else if (currentA.val < currentB.val) {
+            return -1;
+            // return lL2;
+        } else {
+            currentA = currentA.next
+            currentB = currentB.next
+            next = next.next;
+        }
+    }
+    //if they're the same return either list, it doesn't matter
+    // return lL1;
+    return 0;
+}
 
 
 //7.Given a list of integers find the mode and the frequency of the mode
