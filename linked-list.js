@@ -147,3 +147,129 @@ class LinkedList {
         prevNode.next = currNode.next;
     }
 }
+
+
+//display the linked list
+function display() {
+    let output = '';
+    let currNode = this.head;
+    while (currNode !== null) {
+        output += currNode.val
+        //if the current node next is not null
+        if (currNode.next !== null) {
+            //add pointer to the output
+            output += ' -> '
+        }
+        //keep searching
+        currNode = currNode.next;
+    }
+    return output;
+}
+
+function size() {
+    let currentNode = this.head;
+    let i = o;
+    while (currentNode !== null) {
+        i++
+        //keep searching
+        currentNode = currentNode.next;
+    }
+    return i;
+}
+
+function isEmpty() {
+    //if the head is null, the list is empty
+    if (this.head === null) {
+        return true;
+    }
+    //otherwise return false
+    return false;
+}
+
+function findPrevious() {
+    //edge case
+    if (this.isEmpty()) return;
+
+    let currentNode = this.head.next;
+    let previousNode = this.head;
+
+    while (!currentNode) {
+        return previousNode;
+    } 
+    previousNode = currentNode;
+    currentNode = currentNode.next;
+}
+
+function findLast() {
+    //edge case
+    if (this.isEmpty()) return;
+
+    let currentNode = this.head;
+
+    while (currentNode !== null) {
+        currentNode = currentNode.next;
+    }
+    return currentNode;
+}
+
+
+//reverse a linked list using recursion
+function reverseList(head) {
+    //edge cases
+    if (this.isEmpty()) return;
+    if (!head.next) return head;
+
+    let rev = reverseList(head.next);
+
+    head.next.next = head;
+    head.next = null;
+    return rev;
+}
+
+function middle() {
+    //edge case
+    if (this.isEmpty()) return;
+
+    let size = this.size();
+    size = Math.floor(size/2);
+
+    let currentNode = this.head;
+
+    while (next) {
+        currentNode = currentNode.next;
+    }
+
+    return currentNode;
+}
+
+function thirdElement() {
+    //edge case
+    if (this.isEmpty()) return;
+
+    let currentNode = this.head;
+
+    if (currentNode.next.next === null) {
+        return 'There are only two nodes in the list.'
+    }
+
+    let lastNode = currentNode.next.next;
+
+    while (lastNode.next !== null) {
+        currentNode = currentNode.next;
+        lastNode = lastNode.next;
+    }
+
+    return currentNode;
+}
+
+
+//incomplete
+function sortList(list) {
+    //edge case
+    if (this.isEmpty()) return;
+    if (this.head.next === null) {
+        return list;
+    } else {
+        this.middle()
+    }
+}
